@@ -1,16 +1,27 @@
 class SessionsController < ApplicationController
 
     def create
-        byebug
-        found_user = User.find_by(username: params[:username])
-        if found_user && found_user.authenticate(params[:password])
-            render json: UserSerializer.new(found_user).to_serialized_json
+        user = User.find_by(username: params[:username])
+        if user && user.authenticate(params[:password])
+            render json: {
+                    success: true, 
+                    user: user.id_and_username,
+                    token: generate_token(user)
+                 }     
         else
-            byebug
+              render json: { success: false } 
         end
     end
 
     def destroy
         byebug
+    end
+
+    private
+    def generate_token(user)
+        alg = 'HS256'
+        secret = 'password123'
+        payload = { user_id: user.id }
+        JWT.encode(payload, secret, alg)
     end
 end
