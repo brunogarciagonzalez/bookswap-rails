@@ -2,9 +2,9 @@ class SessionsController < ApplicationController
 
     def create
         byebug
-        found = User.find_by(username: params[:username])
-        if found && found.authenticate(params[:password])
-            render json: found
+        found_user = User.find_by(username: params[:username])
+        if found_user && found_user.authenticate(params[:password])
+            render json: UserSerializer.new(found_user).to_serialized_json
         else
             byebug
         end
