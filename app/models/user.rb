@@ -3,4 +3,11 @@ class User < ApplicationRecord
 
   has_many :user_books
   has_many :books, through: :user_books
+
+  def id_and_username
+    {
+      id: id,
+      username: username
+    }
+  end
 end
