@@ -1,24 +1,18 @@
-# README
+# Rails API (back end) for BookSwap.io
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+As the project name hints at, the idea is to build a platform for people to trade books. Specifically though, it would be for technical books and textbooks.
 
-Things you may want to cover:
+* Current Gem Dependencies:
+ ruby-2.6.1
+ rails-6.0.0
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
+ Other than the regular Rails dependencies:
+ bcrypt -- user password hashing
+ jwt -- token authentication
+ rack-cors -- to manage cross-origin resource sharing
+ pg - to utilize PostgreSQL as the Database Management System.
+ 
 * Deployment instructions
+  None yet, hoping to get it hosted soon.
 
-* ...
+* Repo for React App (front end) for BookSwap.io can be found [here](https://github.com/brunogarciagonzalez/bookswap-react)
