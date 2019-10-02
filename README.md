@@ -13,4 +13,4 @@ As the project name hints at, the idea is to build a platform for people to trad
 ### Deployment instructions
   None yet, hoping to get it hosted soon.
 
-Repo for React App (front end) for BookSwap.io can be found [here](https://github.com/brunogarciagonzalez/bookswap-react)
+__Repo for React App (front end) for BookSwap.io can be found [here](https://github.com/brunogarciagonzalez/bookswap-react)__
