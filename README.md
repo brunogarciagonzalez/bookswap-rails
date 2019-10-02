@@ -7,10 +7,10 @@ As the project name hints at, the idea is to build a platform for people to trad
  rails-6.0.0
 
  Other than the regular Rails dependencies:
- bcrypt -- user password hashing
- jwt -- token authentication
- rack-cors -- to manage cross-origin resource sharing
- pg - to utilize PostgreSQL as the Database Management System.
+ * bcrypt -- user password hashing
+ * jwt -- token authentication
+ * rack-cors -- to manage cross-origin resource sharing
+ * pg - to utilize PostgreSQL as the Database Management System.
  
 * Deployment instructions
   None yet, hoping to get it hosted soon.
