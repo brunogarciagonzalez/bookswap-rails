@@ -10,15 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_153457) do
+ActiveRecord::Schema.define(version: 2019_10_04_191547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "author_books", force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "book_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.string "open_library_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "books", force: :cascade do |t|
+    t.string "title"
     t.string "isbn_10"
     t.string "isbn_13"
-    t.string "title"
+    t.string "book_url"
+    t.string "cover_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -26,6 +42,8 @@ ActiveRecord::Schema.define(version: 2019_10_01_153457) do
   create_table "user_books", force: :cascade do |t|
     t.integer "user_id"
     t.integer "book_id"
+    t.string "condition"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
