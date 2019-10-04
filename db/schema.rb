@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_191547) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
-    t.string "open_library_ID"
+    t.string "open_library_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

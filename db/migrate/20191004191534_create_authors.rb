@@ -2,7 +2,7 @@ class CreateAuthors < ActiveRecord::Migration[6.0]
   def change
     create_table :authors do |t|
       t.string :name
-      t.string :open_library_ID
+      t.string :open_library_id
       t.timestamps
     end
   end
