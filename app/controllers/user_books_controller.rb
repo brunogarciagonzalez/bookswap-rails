@@ -17,11 +17,11 @@ class UserBooksController < ApplicationController
             params["bookData"]["bookUrl"]
             params["bookData"]["coverUrl"]
             params["bookData"]["authors"]
-
+            
+            # also need to create the author(s) and AuthorBook joins
         end
 
 
-        # need to make author(s) and joins
         # create UserBook
         
         # need user 
