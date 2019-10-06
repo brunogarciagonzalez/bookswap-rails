@@ -23,7 +23,7 @@ class UserBooksController < ApplicationController
         # create UserBook   
         condition = params["condition"] 
         description = params["description"] 
-        user_book = UserBook.create(user: current_user, book: book, condition: condition, description: description)
+        user_book = UserBook.create(user: current_user, book: book, condition: condition, description: description, active: true)
         
         render json: { success: true, user_book: user_book.serialize }
     end

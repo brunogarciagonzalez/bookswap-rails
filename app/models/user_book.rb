@@ -9,6 +9,7 @@ class UserBook < ApplicationRecord
         user: { username: self.user.username },
         condition: self.condition,
         description: self.description,
+        active: self.active,
         book: {
           id: self.book.id,
           title: self.book.title,
@@ -29,6 +30,7 @@ class UserBook < ApplicationRecord
       output = {
         # images,
         id: self.id,
+        active: self.active,
         user: { username: self.user.username },
         condition: self.condition,
         description: self.description,
