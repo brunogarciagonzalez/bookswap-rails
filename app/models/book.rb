@@ -9,10 +9,11 @@ class Book < ApplicationRecord
     output = []
     self.all.each do |book|
       serialized_book = book.serialize(only_active_user_books: true)
-      if serialized_book.user_books.length > 0
-        output << serialized
+      if serialized_book[:user_books].length > 0
+        output << serialized_book
       end
     end
+    return output
   end
 
   def serialize(options={})
