@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   has_many :author_books
   has_many :authors, through: :author_books
 
-  def serialize
+  def serialize(options={})
     output = {
       id: self.id,
       title: self.title,
@@ -18,10 +18,19 @@ class Book < ApplicationRecord
     self.authors.each do |author|
       output[:authors] << {name: author.name, open_library_id: author.open_library_id}
     end
-    # TODO(bruno): UserBook column swapped(bool) & render active
+    # if options[:active]
+    # only include active UserBooks
+    if options[:active] 
+      self.user_books.each do |ub|
+        if ub.active
+          output[:user_books] << ub.serialize_for_book_serializer
+        end
+      end
+    else
       self.user_books.each do |ub|
         output[:user_books] << ub.serialize_for_book_serializer
       end
-      return output
+    end
+    return output
   end
 end
