@@ -4,11 +4,11 @@ class Book < ApplicationRecord
   has_many :author_books
   has_many :authors, through: :author_books
 
-  def self.books_with_actives_only  
+  def self.only_books_with_active_user_books 
     # good ol each with if statements
     output = []
     self.all.each do |book|
-      serialized_book = book.serialize(active: true)
+      serialized_book = book.serialize(only_active_user_books: true)
       if serialized_book.user_books.length > 0
         output << serialized
       end
@@ -31,7 +31,7 @@ class Book < ApplicationRecord
     end
     # if options[:active]
     # only include active UserBooks
-    if options[:active] 
+    if options[:only_active_user_books] 
       self.user_books.each do |ub|
         if ub.active
           output[:user_books] << ub.serialize_for_book_serializer
