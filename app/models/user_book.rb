@@ -5,7 +5,7 @@ class UserBook < ApplicationRecord
   def serialize
     # include data for book and for book's authors
       output = {
-        user_id: self.user.id,
+        user: { username: self.user.username },
         condition: self.condition,
         description: self.description,
         book: {
