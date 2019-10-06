@@ -4,6 +4,17 @@ class Book < ApplicationRecord
   has_many :author_books
   has_many :authors, through: :author_books
 
+  def self.books_with_actives_only  
+    # good ol each with if statements
+    output = []
+    self.all.each do |book|
+      serialized_book = book.serialize(active: true)
+      if serialized_book.user_books.length > 0
+        output << serialized
+      end
+    end
+  end
+
   def serialize(options={})
     output = {
       id: self.id,

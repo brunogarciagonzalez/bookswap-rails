@@ -7,6 +7,6 @@ class BooksController < ApplicationController
     def actives_only
         # via this action:
         # user can see all books that have active UserBooks
-        render json: Book.all.map { |book| book.serialize(active: true) }
+        render json: Book.books_with_actives_only 
     end
 end
