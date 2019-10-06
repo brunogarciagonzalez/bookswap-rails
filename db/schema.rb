@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_191547) do
     t.integer "book_id"
     t.string "condition"
     t.text "description"
+    t.boolean "active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

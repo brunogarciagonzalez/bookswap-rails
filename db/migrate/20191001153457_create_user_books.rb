@@ -5,6 +5,7 @@ class CreateUserBooks < ActiveRecord::Migration[6.0]
       t.integer :book_id
       t.string :condition
       t.text :description
+      t.boolean :active
       t.timestamps
     end
   end
