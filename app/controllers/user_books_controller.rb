@@ -1,5 +1,5 @@
 class UserBooksController < ApplicationController
-    before_action :authorized
+    before_action :authorized, only: [:create, :destroy]
 
     def create
         # find or create book
@@ -30,5 +30,14 @@ class UserBooksController < ApplicationController
     
     def destroy
         byebug
+    end
+
+    def show
+        user_book = UserBook.find_by(id: params[:id])
+        if user_book
+            render json: { success: true, user_book: user_book.serialize }
+        else
+            render json: { success: false }
+        end
     end
 end
